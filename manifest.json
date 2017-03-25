@@ -1,0 +1,15 @@
+{
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "description": "See the README.txt for instructions on advanced usage. Silences alerts, prompts, and confirms after one use.",
+  "icons": {
+    "128": "128.png"
+  },
+  "manifest_version": 2,
+  "name": "Only Once 2.0",
+  "permissions": ["tabs", "activeTab", "storage", "\u003Call_urls>"],
+  "short_name": "Only Once 2.0",
+  "version": "2.0"
+}
