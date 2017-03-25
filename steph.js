@@ -1,5 +1,9 @@
 function steph(){
-		console.log("hi");
+	var tabid = "frogs";
+		var ourHistory = JSON.parse(localStorage.getItem(tabid+"-test") || "[]");
+	ourHistory.push({time: Date.now(), eventType: "URL Changed", Identification: "asdf", nURL: "asdf"});
+	console.log(ourHistory);
+	localStorage.setItem(tabid+"-test",JSON.stringify(ourHistory));
 }
 /*
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
@@ -37,3 +41,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 		});
 	}
 });*/
+
+//localStorage.setItem(tabid+"-update",JSON.stringify([]));
+//localStorage.setItem(tabid+"-active",JSON.stringify([]));
+
+/*
+var obj = {
+	"adsf":1234,
+	asd:2,
+	a:[1,2,""]
+}*/
