@@ -6,11 +6,14 @@ function john(){
 
 var ourHistory = [];
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+    var storeName = "url";
     chrome.extension.getBackgroundPage().console.log("Updated");
 	chrome.extension.getBackgroundPage().console.log(Date.now());
     if(changeInfo.url != undefined){
         chrome.extension.getBackgroundPage().console.log(changeInfo.url);
-    ourHistory.push({time: Date.now(), eventType: "URL Changed", Identification: tabId, nURL: changeInfo.url})
+        var ourHistory = JSON.parse(localStorage.getItem(storeName) || "[]");
+        ourHistory.push({time: Date.now(), eventType: "URL_CHANGE", tabId: tabId, nURL: changeInfo.url});
+	   localStorage.setItem(storeName,JSON.stringify(ourHistory));
     }
 
     
@@ -36,28 +39,29 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
+    var storeName = "active";
     chrome.extension.getBackgroundPage().console.log("Removed");
 	chrome.extension.getBackgroundPage().console.log(Date.now());
-    ourHistory.push({time: Date.now(), eventType: "Removed", Identification: tabId})
+    var ourHistory = JSON.parse(localStorage.getItem(storeName) || "[]");
+
+    ourHistory.push({time: Date.now(), active:false, eventType: "REMOVE", tabId: tabId});
+	localStorage.setItem(storeName,JSON.stringify(ourHistory));
+
+    
+    
 });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
+    var storeName = "active";
     chrome.extension.getBackgroundPage().console.log("Activated");
 	chrome.extension.getBackgroundPage().console.log(Date.now());
     chrome.extension.getBackgroundPage().console.log(activeInfo.tabId);
-        ourHistory.push({time: Date.now(), eventType: "Activated", Identification: activeInfo.tabId})
+    
+ var ourHistory = JSON.parse(localStorage.getItem(storeName) || "[]");
+        ourHistory.push({time: Date.now(), active:true, eventType: "ACTIVE", tabId: activeInfo.tabId});
+	localStorage.setItem(storeName,JSON.stringify(ourHistory));
+
 });
 
-function printHistory(){
-    for(var a = 0; a < ourHistory.length; a++){
-        var oTest = ourHistory[a];
-        if(oTest.nURL == null){
-        chrome.extension.getBackgroundPage().console.log("Time: " + oTest.time + "  Event: " + oTest.eventType + "  TabId: " +oTest.Identification);
-        }
-        else{
-        chrome.extension.getBackgroundPage().console.log("Time: " + oTest.time + "  Event: " + oTest.eventType + "  TabId: " +oTest.Identification + "  URL: " + oTest.nURL);
-        }
-    }
-    
-}
+
 
