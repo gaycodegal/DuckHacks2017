@@ -195,6 +195,7 @@ function Analyze() {
 	for(var url in timeStore){
 		console.info("spent " + timeStore[url]/1000/60 + " minutes on " + url);
 	}
+	return timeStore;
 }
 
 function AnalyseByTab(tabId, slices) {
