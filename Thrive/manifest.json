@@ -14,8 +14,8 @@
   },
 	"options_page":"options.html",
   "manifest_version": 2,
-  "name": "DuckHacks 2017",
+  "name": "DuckHacks2017 (Thrive)",
   "permissions": ["tabs", "activeTab", "storage", "\u003Call_urls>"],
-  "short_name": "DuckHacks 2017",
+  "short_name": "DuckHacks2017 (Thrive)",
   "version": "2.0"
 }

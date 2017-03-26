@@ -25,12 +25,16 @@ At the time of this hackathon, Izzy and John were freshmen computer science majo
 
 For the skill level of the team, this project was a great success, especially for winning one of five DuckHacks 2017 categories. The team did experience time restrictions due to large homework loads that needed doing in the course of the hackathon, but despite this setback, much was accomplished, and the project was successful.
 
+Skills learned:
+
+Izzy and John learned JavaScript, the d3.js framework, and how to make a chrome extension. Sarah and Jade learned Python's Flask and Twillio libraries. Steph learned more about successfully managing teams and succesfully navigating project obstacles (and did some networking).
+
 ## Installation
 
 To install, after downloading, go to chrome://extensions 
 1) Enable Developer mode by ticking the checkbox.
 2) Click Load unpacked extension...
-3) Navigate to the DuckHacks2017 folder.
+3) Navigate to the Thrive folder.
 4) Select the folder.
 5) DuckHacks2017 (Thrive) is now ready for your use and will
 function on any sites loaded after the extension has
@@ -39,7 +43,7 @@ been installed.
 ## Removal
 
 To uninstall, go to chrome://extensions
-1) Navigate to DuckHacks2017.
+1) Navigate to DuckHacks2017 (Thrive).
 2) Either uncheck Enabled or click the trash icon
 and click remove.
 
