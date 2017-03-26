@@ -54,7 +54,8 @@ xhr.onreadystatechange = function() {
         console.log(xhr.responseText);
     }
 }
-xhr.open('GET', 'http://bluecode.altervista.org/email/send.php?to='+ recip+'&subject=Test%20From%20Thrive&message=Get%20ready%20to%20Thrive', true);
+var yoursite = 'http://something.example.org/email/';
+xhr.open('GET', yourside + 'send.php?to='+ recip+'&subject=Test%20From%20Thrive&message=Get%20ready%20to%20Thrive', true);
 xhr.send(null);
 	
 }

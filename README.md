@@ -1,48 +1,60 @@
-# DuckHacks 2017 App
+# DuckHacks 2017 (Thrive)
+Steph Oro, Izzy Joyce, John Cheng/Wang, Jade Laceste, Sarah Dollard
 
-To install, go to chrome://extensions 
+## Won one of the five categories at DuckHacks 2017!
+
+Capabilities
++ Tracks time you spend on active tabs.
++ Categorizes time spent by site.
++ Displays analytical graphs in popup.
++ Clear saved data.
++ Set email preferences.
++ Integrated emailing via PHP.
+    - Disabled for liability protection of the authors.
+
+Extras
++ Flask server that can send texts via Twillio.
+    - Developed by Jade and Sarah.
+    - Disabled for liability protection of the authors.
+		
+## Post Mortem
+
+For this competition, we followed the agile development model. Jade and Sarah pair programmed together for the hackathon, as did Izzy and John for a second team. Steph Oro was the agile coach, providing help to the two pairs, and helping the pairs learn Python and JavaScript respectively, as well as coding the app shell and analysis algorithm.
+
+At the time of this hackathon, Izzy and John were freshmen computer science majors in the honors track, Jade was a sophomore computer engineer, Sarah was a sophomore mechanical engineering major, and Steph was a sophomore computer science major and a TA for CS 115.
+
+For the skill level of the team, this project was a great success, especially for winning one of five DuckHacks 2017 categories. The team did experience time restrictions due to large homework loads that needed doing in the course of the hackathon, but despite this setback, much was accomplished, and the project was successful.
+
+## Installation
+
+To install, after downloading, go to chrome://extensions 
 1) Enable Developer mode by ticking the checkbox.
 2) Click Load unpacked extension...
-3) Navigate to the OnlyOnce2 folder
+3) Navigate to the DuckHacks2017 folder.
 4) Select the folder.
-5) Only Once 2.0 is now ready for your use and will
+5) DuckHacks2017 (Thrive) is now ready for your use and will
 function on any sites loaded after the extension has
 been installed.
 
+## Removal
+
 To uninstall, go to chrome://extensions
-1) Navigate to OnlyOnce2
+1) Navigate to DuckHacks2017.
 2) Either uncheck Enabled or click the trash icon
 and click remove.
 
-The behaviour of Only Once can be modified by running
-console commands on the website you would like to make
-allowances for. The following are the commands patterns
-allowed (code is indented):
+This app will track your time, and if you visit the options page, you can mark sites you visit as Useful, Neutral, or Distracting. I've disabled emailing capabilities, but included our php script for emailing, and Flask app for texting. 
 
-Okay, so if you want to give a site the ability
-to use as many alerts as needed, use:
+You may need to configure your site for cross origin access. For php, you'd want to put:
 
-    localStorage.setItem("onlyoncemessage", "Infinity");
+    allow from all
 
+In a `.htaccess` file in the same folder as the emailing script - although you might want to include some more security features into both the Flask app and php/htaccess.
 
-If you want to enable a site to use x number of
-alerts (across all site uses) use:
+## Legal
 
-    localStorage.setItem("onlyoncemessage", "1337");
-		
-Replacing 1337 with your desired number.
+THIS PROJECT, LIKE ALL MY OTHER PROJECTS HAS NO WARRENTY STATED OR IMPLIED. FOR THE PURPOSES OF LIABILITY THIS IS A COPYRIGHTED WORK AND YOU'RE NOT ALLOWED TO USE IT IN ANY FORM UNLESS THE LAW SAYS YOU CAN. IF YOU'RE LEGALLY ALLOWED TO USE IT THE AUTHORS ARE NOT TO BE HELD RESPONSIBLE FOR WHAT HAPPENS.
 
-If you would like the alert use to reset every site
-visit, use:
+## Side Note
 
-    localStorage.setItem("onlyoncenotstatic", "true");
-    localStorage.setItem("onlyoncemessage", "1337");
-
-Replacing 1337 with your desired number.
-
-To turn any site back to normal of 1 alert and you're
-done, use:
-
-    localStorage.setItem("onlyoncenotstatic", "false");
-    localStorage.setItem("onlyoncemessage", "1");
-	
+I won't sue anyone using this, I'm just telling you that you can't use it for the saftey of the authors.
