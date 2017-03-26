@@ -1,6 +1,6 @@
 function dashboard(id, fData){
     var barColor = 'steelblue';
-    function segColor(c){ return {Useful:"#807dba", Neutral:"#e08214",RIP:"#41ab5d"}[c]; }
+    function segColor(c){ return {Useful:"#807dba", Neutral:"#e08214",Distracting:"#41ab5d"}[c]; }
     
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
@@ -36,7 +36,7 @@ function dashboard(id, fData){
             .attr("y", function(d) { return y(d[1]); })
             .attr("width", x.rangeBand())
             .attr("height", function(d) { return hGDim.h - y(d[1]); })
-            .attr('fill',barColor)
+            .attr('fill', barColor)
             .on("mouseover",mouseover)// mouseover is defined below.
             .on("mouseout",mouseout);// mouseout is defined below.
             
@@ -176,26 +176,24 @@ function dashboard(id, fData){
         return leg;
     }
     
-var sF = fData.map(function(d){return [d.SiteName,d.time];});
+var sF = fData.map(function(d){return [d.SiteName,d.time,d.useful];});
 
-var idArray = [""]
-    
 var UsefulTime = 0;
 var NeutralTime = 0;
 var WastedTime = 0;
     
 for(var a = 0; a < fData.length; a++){
-    if(fData[a].useful == 1){
+    if(fData[a].useful == "Useful"){
         UsefulTime += fData[a].time;
     }
-    else if(fData[a].useful == 0){
+    else if(fData[a].useful == "Neutral"){
         NeutralTime += fData[a].time;
     }
-    else if(fData[a].useful == -1){
+    else if(fData[a].useful == "Distracting"){
         WastedTime += fData[a].time;
     }
 }
-    var tF = [{type: 'Useful', freq: UsefulTime}, {type: 'Neutral', freq: NeutralTime}, {type: 'RIP', freq: WastedTime}];
+    var tF = [{type: 'Useful', freq: UsefulTime}, {type: 'Neutral', freq: NeutralTime}, {type: "Distracting", freq: WastedTime}];
     
     tF = tF.map(function(d){return {type: d.type, freq: Math.round(d.freq * 10)/10}});
     
@@ -206,16 +204,16 @@ var hG = histoGram(sF),
 }
 
 var freqData=[
-{SiteName:'facebook',time: 3.5, useful: 1}
-,{SiteName:'google',time: 4.5, useful: -1}
-,{SiteName:'instagram',time: 6.5, useful: 0}
-,{SiteName:'twitter',time: 2.4, useful: 0}
-,{SiteName:'canvas',time: 7.9, useful: -1}
-,{SiteName:'nytimes',time: 2.4, useful: 1}
-,{SiteName:'wikipedia',time: 1.1, useful: 1}
-,{SiteName:'reddit',time: 5.7, useful: 0}
-,{SiteName:'theCatAPI',time: 3.1, useful: -1}
-,{SiteName:'gmail',time: 1.9, useful: 1}
+{SiteName:'facebook',time: 3.5, useful: "Useful"}
+,{SiteName:'google',time: 4.5, useful: "Neutral"}
+,{SiteName:'instagram',time: 6.5, useful: "Distracting"}
+,{SiteName:'twitter',time: 2.4, useful: "Neutral"}
+,{SiteName:'canvas',time: 7.9, useful: "Distracting"}
+,{SiteName:'nytimes',time: 2.4, useful: "Useful"}
+,{SiteName:'wikipedia',time: 1.1, useful: "Neutral"}
+,{SiteName:'reddit',time: 5.7, useful: "Useful"}
+,{SiteName:'theCatAPI',time: 3.1, useful: "Distracting"}
+,{SiteName:'gmail',time: 1.9, useful: "Useful"}
 ];
 
 dashboard('#dashboard',freqData);
