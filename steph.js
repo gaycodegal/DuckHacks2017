@@ -271,7 +271,7 @@ function AnalyseByTab(tabId, slices) {
 		sliceptr++;
 	}
 	
-	
+	delete(timeStore[""]);
 	
 	return timeStore;
 	//localStorage.setItem(storeName, JSON.stringify([urls[urls.length - 1]]));
@@ -286,7 +286,13 @@ function getCanonicalURL(url) {
 	}
 }
 
-window.Analyze = Analyze	;
+window.Analyze = Analyze;
+
+function SendWarnings(data){
+	var storeName = "triggers";
+	var triggers = null;
+	
+}
 /*
 activity = activities[activityPtr];
 tabId = activity.tabId;
