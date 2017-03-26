@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener(function() {
   console.log("Installed.");
   // localStorage is persisted, so it's a good place to keep state that you
   // need to persist across page reloads.
-  localStorage.clear();
+  //localStorage.clear();
 
   // Register a webRequest rule to redirect bing to google.
   //var wr = chrome.declarativeWebRequest;
