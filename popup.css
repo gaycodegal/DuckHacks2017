@@ -2,6 +2,7 @@ body{
     width:1060px;
     height: 1000px;
     margin:50px auto;
+		transform: scale(0.75,0.75)
 }
 path {  stroke: #fff; }
 path:hover {  opacity:0.9; }
@@ -32,3 +33,4 @@ rect:hover {  fill:blue; }
     align:right;
     width:50px;
 }
+

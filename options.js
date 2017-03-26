@@ -8,6 +8,7 @@ evt.setemail = function () {
 	var val = document.getElementById("emailinput").value;
 	localStorage.setItem("warning-email", val);
 	console.info("Email set!");
+	sendTestEmail(val);
 };
 
 function make(a, text, st, type) {
@@ -44,6 +45,18 @@ function setChecked(type, use, neu, dist) {
 function setTypeUrl(url, type){
 	console.log(url+"-utility", type);
 	localStorage.setItem(url+"-utility", type);
+}
+
+function sendTestEmail(recip){
+	var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+        console.log(xhr.responseText);
+    }
+}
+xhr.open('GET', 'http://bluecode.altervista.org/email/send.php?to='+ recip+'&subject=Test%20From%20Thrive&message=Get%20ready%20to%20Thrive', true);
+xhr.send(null);
+	
 }
 
 function setClassFn(url, type, use, neu, dist) {
