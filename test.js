@@ -205,7 +205,7 @@ var hG = histoGram(sF),
 var freqData = [];
 var data = Analyze();
 for(var key in data){
-    freqData.push({SiteName: key, time:data[key], useful:"Neutral"});
+    freqData.push({SiteName: key, time:data[key], useful:IsUseful(key)});
 }
 /*
 var freqData=[

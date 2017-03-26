@@ -5,3 +5,13 @@ input{
 	margin-right: 10px;
 	text-align: center;
 }
+
+.lblclss{
+	vertical-align: middle;
+	line-height: 20px;
+}
+
+.inpt{
+	vertical-align: middle;
+	line-height: 20px;
+}

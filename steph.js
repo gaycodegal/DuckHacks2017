@@ -135,6 +135,15 @@ var obj = {
 	a:[1,2,""]
 }*/
 
+function IsUseful(url){
+	var res = localStorage.getItem(url+"-utility");
+	console.log(url+"-utility",res);
+	if(!res)
+		return "Neutral";
+	return res;
+	//return "Useful";
+	//return "Distracting";
+}
 
 function Analyze() {
 	var storeName = "active";
