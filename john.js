@@ -6,7 +6,7 @@ function john(){
 
 var ourHistory = [];
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    var storeName = "url";
+    var storeName = tabId + "url";
     chrome.extension.getBackgroundPage().console.log("Updated");
 	chrome.extension.getBackgroundPage().console.log(Date.now());
     if(changeInfo.url != undefined){
