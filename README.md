@@ -59,6 +59,8 @@ In a `.htaccess` file in the same folder as the emailing script - although you m
 
 THIS PROJECT, LIKE ALL MY OTHER PROJECTS HAS NO WARRENTY STATED OR IMPLIED. FOR THE PURPOSES OF LIABILITY THIS IS A COPYRIGHTED WORK AND YOU'RE NOT ALLOWED TO USE IT IN ANY FORM UNLESS THE LAW SAYS YOU CAN. IF YOU'RE LEGALLY ALLOWED TO USE IT THE AUTHORS ARE NOT TO BE HELD RESPONSIBLE FOR WHAT HAPPENS.
 
+The bell image is in no way connected to this project nor does it support this project, the name of it's creator is Jonathan Patterson. It was marked `Free for commercial use` on [iconfinder.com](iconfinder.com), meaning we didn't have to credit Patterson, but we wanted to.
+
 ## Side Note
 
 I won't sue anyone using this, I'm just telling you that you can't use it for the saftey of the authors.
