@@ -202,7 +202,12 @@ var hG = histoGram(sF),
     pC = pieChart(tF),
     leg = legend(tF);
 }
-
+var freqData = [];
+var data = Analyze();
+for(var key in data){
+    freqData.push({SiteName: key, time:data[key], useful:"Neutral"});
+}
+/*
 var freqData=[
 {SiteName:'facebook',time: 3.5, useful: "Useful"}
 ,{SiteName:'google',time: 4.5, useful: "Neutral"}
@@ -215,5 +220,6 @@ var freqData=[
 ,{SiteName:'theCatAPI',time: 3.1, useful: "Distracting"}
 ,{SiteName:'gmail',time: 1.9, useful: "Useful"}
 ];
+*/
 
 dashboard('#dashboard',freqData);
