@@ -4,6 +4,10 @@
     "scripts": ["background.js","izzy.js","john.js","jade.js","steph.js"]
   },
   "description": "HAXOR",
+ "browser_action": {
+    "128": "128.png",
+    "default_popup": "popup.html"
+  },
   "icons": {
     "128": "128.png"
   },
