@@ -30,6 +30,7 @@ function dashboard(id, fData){
         var bars = hGsvg.selectAll(".bar").data(fD).enter()
                 .append("g").attr("class", "bar");
         
+
         //create the rectangles.
         bars.append("rect")
             .attr("x", function(d) { return x(d[0]); })
@@ -205,10 +206,11 @@ var hG = histoGram(sF),
 var freqData = [];
 var data = Analyze();
 for(var key in data){
-    freqData.push({SiteName: key, time:data[key], useful:IsUseful(key)});
+    freqData.push({SiteName: key, time:Math.round(data[key]/6000)/10, useful:IsUseful(key)});
+
 }
-/*
-var freqData=[
+
+/*var freqData=[
 {SiteName:'facebook',time: 3.5, useful: "Useful"}
 ,{SiteName:'google',time: 4.5, useful: "Neutral"}
 ,{SiteName:'instagram',time: 6.5, useful: "Distracting"}
@@ -219,7 +221,7 @@ var freqData=[
 ,{SiteName:'reddit',time: 5.7, useful: "Useful"}
 ,{SiteName:'theCatAPI',time: 3.1, useful: "Distracting"}
 ,{SiteName:'gmail',time: 1.9, useful: "Useful"}
-];
-*/
+];*/
+
 
 dashboard('#dashboard',freqData);
