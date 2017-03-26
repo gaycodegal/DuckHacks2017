@@ -70,20 +70,20 @@ chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
 });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-	try{
-	var storeName = "active";
-	chrome.extension.getBackgroundPage().console.log("Activated");
-	chrome.extension.getBackgroundPage().console.log(Date.now());
-	chrome.extension.getBackgroundPage().console.log(activeInfo.tabId);
+	try {
+		var storeName = "active";
+		chrome.extension.getBackgroundPage().console.log("Activated");
+		chrome.extension.getBackgroundPage().console.log(Date.now());
+		chrome.extension.getBackgroundPage().console.log(activeInfo.tabId);
 
-	var ourHistory = JSON.parse(localStorage.getItem(storeName) || "[]");
-	ourHistory.push({
-		time: Date.now(),
-		active: true,
-		eventType: "ACTIVE",
-		tabId: activeInfo.tabId
-	});
-	localStorage.setItem(storeName, JSON.stringify(ourHistory));
+		var ourHistory = JSON.parse(localStorage.getItem(storeName) || "[]");
+		ourHistory.push({
+			time: Date.now(),
+			active: true,
+			eventType: "ACTIVE",
+			tabId: activeInfo.tabId
+		});
+		localStorage.setItem(storeName, JSON.stringify(ourHistory));
 
 
 	} catch (e) {
