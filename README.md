@@ -25,9 +25,25 @@ At the time of this hackathon, Izzy and John were freshmen computer science majo
 
 For the skill level of the team, this project was a great success, especially for winning one of five DuckHacks 2017 categories. The team did experience time restrictions due to large homework loads that needed doing in the course of the hackathon, but despite this setback, much was accomplished, and the project was successful.
 
-Skills learned:
+### Challenges
 
-Izzy and John learned JavaScript, the d3.js framework, and how to make a chrome extension. Sarah and Jade learned Python's Flask and Twillio libraries. Steph learned more about successfully managing teams and succesfully navigating project obstacles (and did some networking).
+It's not as easy as one would think to track exactly what url a user is viewing actively, and this was the main challenge that we faced during development. Essentially, a Chrome extension may only access a tab's identifier when it becomes active, and can only recieve URLs loaded asynchronously by another method.
+
+In order to solve this problem, we first started by gathering data in a format we could work with. We saved all of the pages that became active in a queue timestamped by when they were added. Simultaneously, we also saved URL changes to a series of queues - one per browser tab. In this method, we were able to collect the data we would need to analyze, but the anlysis algorithm would present further challenges.
+
+For the analysis algorithm, we attempted multiple solutions, eventually settling on a multiple pass solution. For our first failed attempt, we tried to handle everything at once, keeping a hash mapping of tab ID to current url, a second hash map of time spent on each url, and a final map of pointers into a url queue to save time spent searching. This method was both inefficient and the code was far too complex to be understandable. Thus, we decided to move on and attempt other solutions.
+
+You can find a more complete list of attempted solutions in the project's history, or in the code commented out in steph.js. However the final solution we settled on required multiple passes and solved our problem with simplicity and efficiency.
+
+This solution was to first pass over the activity queue and determine the length of time spent on each tab active (saving a start, end, and length field). We pushed this data into N many queues in a hash map keyed by tab IDs. Additionally, we also passed over the already existing N many URL queues and annotated these with start, end, and length fields.
+
+With this preprocessing, it became much simpler to implement our analysis algorithm - we now had 2 sets of N many queues, both keyed by tab ID. Thus, we simply took an approach much like the 'merge' section one might find in an implementation of the mergesort algorithm to walk over the queue pair for each tab ID and sum the times spent separated by url.
+
+### Skills Learned
+
+The main learning we took from this setback and eventual success was that while any given approach one might come up with for solving a complicated process might work, it is wise to recognize that overly complicated algorithms might be made simpler by a series of preprocessing steps to coerce data into the format that you feel best suits the algorithm, especially in an environment where coding time is limited. 
+
+Additionally, Izzy and John learned JavaScript, the d3.js framework, and how to make a chrome extension. Sarah and Jade learned Python's Flask and Twillio libraries. Steph learned more about successfully managing teams and succesfully navigating project obstacles, as well as continuing to expand her knowledge of chrome extension development (and did some networking).
 
 ## Installation
 
@@ -57,10 +73,4 @@ In a `.htaccess` file in the same folder as the emailing script - although you m
 
 ## Legal
 
-THIS PROJECT, LIKE ALL MY OTHER PROJECTS HAS NO WARRENTY STATED OR IMPLIED. FOR THE PURPOSES OF LIABILITY THIS IS A COPYRIGHTED WORK AND YOU'RE NOT ALLOWED TO USE IT IN ANY FORM UNLESS THE LAW SAYS YOU CAN. IF YOU'RE LEGALLY ALLOWED TO USE IT THE AUTHORS ARE NOT TO BE HELD RESPONSIBLE FOR WHAT HAPPENS.
-
-The bell image is in no way connected to this project nor does it support this project, the name of it's creator is Jonathan Patterson. It was marked `Free for commercial use` on [iconfinder.com](iconfinder.com), meaning we didn't have to credit Patterson, but we wanted to.
-
-## Side Note
-
-I won't sue anyone using this, I'm just telling you that you can't use it for the saftey of the authors.
+This project may be launched on the chrome app store after polishing, but it is also available in source format under the MIT License see [LEGAL.md](./LEGAL.md) for details.
